@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Backbone TS</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="index.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backbone TS</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script defer src="https://unpkg.com/es-module-shims@0.5.1/dist/es-module-shims.min.js"></script>
+  <script type="importmap-shim">
+    {
+      "imports": {
+        "backbone": "https://cdn.skypack.dev/pin/backbone@v1.4.0-ZSfu3GzhR45Kyv2EXVG7/min/backbone.js",
+        "underscore": "https://cdn.skypack.dev/pin/underscore@v1.10.2-n36eeBWfz6mtj06zHRNb/min/underscore.js",
+        "jquery": "https://cdn.skypack.dev/pin/jquery@v3.5.1-6H7QyQgJOVyr83MbkKs5/min/jquery.js"
+      }
+    }
+  </script>
+  <script type="module-shim">
+    import './index.js'
+  </script>
+</body>
+
 </html>
