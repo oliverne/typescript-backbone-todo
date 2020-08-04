@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "tsc -outDir dist",
+    "serve": "browser-sync dist public -w",
     "dev": "tsc --outDir dist --watch",
     "build": "tsc --outDir dist"
   },
