@@ -1,20 +1,17 @@
 import Backbone from 'backbone';
 import _ from 'underscore';
-import TodoModel from '../models/Todo.model.js';
+import TodoModel, { ITodoModel } from '../models/Todo.model.js';
 
 export default class TodoView extends Backbone.View<TodoModel> {
-  static templateFn = _.template(`<p><%= title %> - <%= completed %></p>`);
+  static templateFn = _.template(
+    `<p><%= title %> - <%= completed.toString().toUpperCase() %></p>`
+  );
 
-  initialize() {
+  constructor(options: Backbone.ViewOptions<TodoModel>) {
+    super(options);
     console.log('TodoView initialized');
     this.listenTo(this.model, 'change', this.render);
   }
-
-  /*
-  constructor(options: Backbone.ViewOptions<TodoModel>) {
-    super(options);
-  }
-  */
 
   get tagName() {
     return 'h1';
@@ -25,8 +22,9 @@ export default class TodoView extends Backbone.View<TodoModel> {
   }
 
   render() {
-    const context = this.model.toJSON();
+    const context = this.model.toJSON() as ITodoModel;
     this.$el.html(this.template(context));
+    console.log('TodoView rendered');
     return this;
   }
 }
